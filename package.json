@@ -1,7 +1,7 @@
 {
     "name": "Houston",
     "version": "0.0.1",
-    "description": "Houston allows you to create command-line commands. Your console commands can be used for any recurring task, such as cronjobs, imports, or other batch jobs. Inspired by symfony console component",
+    "description": "Houston allows you to create command-line commands for NodeJS. Your console commands can be used for any recurring task, such as cronjobs, imports, or other batch jobs. Inspired by symfony console component",
     "main": "houston.coffee",
     "dependencies": {
         "coffee-script": "^1.10.0",
