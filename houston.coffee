@@ -1,5 +1,3 @@
-#!/usr/bin/env coffee
-
 process.on("uncaughtException", (err)->
     console.log("Unhandled error: #{err}")
 );
