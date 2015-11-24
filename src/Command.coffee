@@ -14,7 +14,7 @@ class Command
         unless @commandDescription?
             throw new Error('Command description is not specified. Please, override ir on your command')
 
-        action: @execute, description: @commandDescription, options: @commandOptions, actionSignature: @commandName
+        action: @execute, description: @commandDescription, options: @commandOptions, actionSignature: @commandName, name: @commandName
 
     execute: ->
         console.log('override it!')

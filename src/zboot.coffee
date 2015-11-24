@@ -3,10 +3,10 @@ errorHandler = (error)->
     console.log(error.stack)
     console.log("================= Handled error =================")
 
-module.exports = (app, options)->
+module.exports = (app, settings)->
     commandsRegistry = require("./commandsRegistry.coffee")
 
-    commandsRegistry.registryCommandsArray(options.commandsListPath) if options.commandsListPath?
+    commandsRegistry.registryCommandsArray(settings.commandsListPath) if settings.commandsListPath?
 
     commands = commandsRegistry.getCommands()
 
@@ -15,7 +15,7 @@ module.exports = (app, options)->
 
         actionErrorHandlerWrapper = (actionDetails)->
             (param, options)->
-                actionDetails.action.call(actionDetails.action, [param, options])
+                actionDetails.action.call(actionDetails.action, [param, options, settings[actionDetails.name]])
                 .catch(errorHandler)
 
         preparedCommand = app
