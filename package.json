@@ -1,0 +1,30 @@
+{
+    "name": "Houston",
+    "version": "0.0.1",
+    "description": "Houston allows you to create command-line commands. Your console commands can be used for any recurring task, such as cronjobs, imports, or other batch jobs. Inspired by symfony console component",
+    "main": "houston.coffee",
+    "dependencies": {
+        "coffee-script": "^1.10.0",
+        "commander": "^2.9.0"
+    },
+    "devDependencies": {},
+        "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/readdle/houston.git"
+    },
+    "keywords": [
+        "console",
+        "console nodejs",
+        "console component",
+        "command-line",
+        "command-line console"
+    ],
+    "author": "Petrovskyi Anatolii (Readdle)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/readdle/houston/issues"
+    }
+}
