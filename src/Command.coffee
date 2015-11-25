@@ -1,20 +1,20 @@
 class Command
 
-    commandName: null
-    commandDescription: null
-    commandOptions: []
+    name: null
+    description: null
+    options: []
 
     throwError: (message)->
         throw new Error(message)
 
     init: ->
-        unless @commandName?
+        unless @name?
             throw new Error('Command name is not specified. Please, override it on your command')
 
-        unless @commandDescription?
+        unless @description?
             throw new Error('Command description is not specified. Please, override ir on your command')
 
-        action: @execute, description: @commandDescription, options: @commandOptions, actionSignature: @commandName, name: @commandName
+        action: @execute, description: @description, options: @options, actionSignature: @name, name: @name
 
     execute: ->
         console.log('override it!')

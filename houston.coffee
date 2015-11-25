@@ -6,21 +6,14 @@ process.on("uncaughtException", (err)->
 
 module.exports.Command = require("./src/Command.coffee")
 
-module.exports.console = (commandsList = [], optionsPath = '')->
-    options = {}
-
-    if fs.existsSync(optionsPath)
-        rawOptions = fs.readFileSync(optionsPath)
-
-        options = JSON.parse(rawOptions)
-
+module.exports.console = (commandsList = [])->
     commander = require("commander")
 
     zBoot = require("./src/zBoot.coffee")
 
     commander.version('0.1')
 
-    zBoot(commander, commandsList, options)
+    zBoot(commander, commandsList)
 
     unless process.argv.length > 2
         commander.outputHelp()

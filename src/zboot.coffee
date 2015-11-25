@@ -3,7 +3,7 @@ errorHandler = (error)->
     console.log(error.stack)
     console.log("================= Handled error =================")
 
-module.exports = (app, commandsList = [], settings = {})->
+module.exports = (app, commandsList = [])->
     commandsRegistry = require("./commandsRegistry.coffee")
 
     commandsRegistry.registryCommandsArray(commandsList)
@@ -15,7 +15,7 @@ module.exports = (app, commandsList = [], settings = {})->
 
         actionErrorHandlerClosure = (actionDetails)->
             (param, options)->
-                callResult = actionDetails.action.call(actionDetails.action, [param, options, settings[actionDetails.name]])
+                callResult = actionDetails.action.call(actionDetails.action, [param, options])
                 callResult.catch(errorHandler) if callResult? and callResult.catch?
 
         preparedCommand = app
