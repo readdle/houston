@@ -5,7 +5,7 @@ Houston allows you to create command-line commands for NodeJS. Inspired by Symfo
 # Installation
 
 ```sh
-$ npm install --save houston
+$ npm install --save houston_console
 ```
 
 # Your first command
