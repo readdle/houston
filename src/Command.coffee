@@ -12,7 +12,7 @@ class Command
             throw new Error('Command name is not specified. Please, override it on your command')
 
         unless @description?
-            throw new Error('Command description is not specified. Please, override ir on your command')
+            throw new Error('Command description is not specified. Please, override it on your command')
 
         action: @execute, description: @description, options: @options, actionSignature: @name, name: @name
 

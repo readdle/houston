@@ -13,7 +13,7 @@ $ npm install --save houston_console
 ./commands/TestCommand.coffee
 
 ```coffee
-BaseCommand = require("houston").Command
+BaseCommand = require("houston_console").Command
 
 class TestCommand extends BaseCommand
 
@@ -39,7 +39,7 @@ Add your commands to the houston:
 ```coffee
 #!/usr/bin/env coffee
 
-console = require("houston").console
+console = require("houston_console").console
 
 commandList = []
 
@@ -63,7 +63,7 @@ $ ./houston test:command
 # Add run options to the command
 
 ```coffee
-BaseCommand = require("houston").Command
+BaseCommand = require("houston_console").Command
 
 class TestCommand extends BaseCommand
 
@@ -100,7 +100,7 @@ executed!
 # Handle command argument:
 
 ```coffee
-BaseCommand = require("houston").Command
+BaseCommand = require("houston_console").Command
 
 class TestCommand extends BaseCommand
 
