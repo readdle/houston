@@ -4,7 +4,9 @@ process.on("uncaughtException", (err)->
     console.log("Unhandled error: #{err}")
 );
 
-module.exports = (commandsList = [], optionsPath = '')->
+module.exports.Command = require("./src/Command.coffee")
+
+module.exports.console = (commandsList = [], optionsPath = '')->
     options = {}
 
     if fs.existsSync(optionsPath)
