@@ -11,7 +11,7 @@ module.exports = (optionsPath)->
 
     commander = require("commander")
 
-    zBoot = require("./commands/zBoot.coffee")
+    zBoot = require("./src/zBoot.coffee")
 
     commander.version('0.1')
 
