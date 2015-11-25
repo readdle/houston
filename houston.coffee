@@ -1,8 +1,14 @@
+fs = require("fs")
+
 process.on("uncaughtException", (err)->
     console.log("Unhandled error: #{err}")
 );
 
-module.exports = (options)->
+module.exports = (optionsPath)->
+    rawOptions = fs.readFileSync(optionsPath)
+
+    options = JSON.parse(rawOptions)
+
     commander = require("commander")
 
     zBoot = require("./commands/zBoot.coffee")
