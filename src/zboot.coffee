@@ -15,8 +15,8 @@ module.exports = (app, commandsList = [], settings = {})->
 
         actionErrorHandlerWrapper = (actionDetails)->
             (param, options)->
-                actionDetails.action.call(actionDetails.action, [param, options, settings[actionDetails.name]])
-                .catch(errorHandler)
+                callResult = actionDetails.action.call(actionDetails.action, [param, options, settings[actionDetails.name]])
+                callResult.catch(errorHandler) if callResult? and callResult.catch?
 
         preparedCommand = app
             .command(commandDetails.actionSignature)
