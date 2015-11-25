@@ -13,7 +13,7 @@ module.exports = (app, commandsList = [], settings = {})->
     for command in commands
         commandDetails = command.init.call(command)
 
-        actionErrorHandlerWrapper = (actionDetails)->
+        actionErrorHandlerClosure = (actionDetails)->
             (param, options)->
                 callResult = actionDetails.action.call(actionDetails.action, [param, options, settings[actionDetails.name]])
                 callResult.catch(errorHandler) if callResult? and callResult.catch?
@@ -21,7 +21,7 @@ module.exports = (app, commandsList = [], settings = {})->
         preparedCommand = app
             .command(commandDetails.actionSignature)
             .description(commandDetails.description)
-            .action(actionErrorHandlerWrapper(commandDetails))
+            .action(actionErrorHandlerClosure(commandDetails))
 
         for option in commandDetails.options
             preparedCommand.option(option.option, option.description)
