@@ -15,7 +15,7 @@ module.exports = (app, commandsList = [])->
 
         actionErrorHandlerClosure = (actionDetails)->
             (param, options)->
-                callResult = actionDetails.action.call(actionDetails.action, [param, options])
+                callResult = actionDetails.action.call(actionDetails.action, param, options)
                 callResult.catch(errorHandler) if callResult? and callResult.catch?
 
         preparedCommand = app

@@ -76,7 +76,7 @@ class TestCommand extends BaseCommand
         }
     ]
 
-    execute: (param, options)->
+    execute: (options)->
         console.log 'force:', options.force
         console.log 'executed!'
 
