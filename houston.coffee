@@ -4,10 +4,13 @@ process.on("uncaughtException", (err)->
     console.log("Unhandled error: #{err}")
 );
 
-module.exports = (optionsPath)->
-    rawOptions = fs.readFileSync(optionsPath)
+module.exports = (commandsList = [], optionsPath = '')->
+    options = {}
 
-    options = JSON.parse(rawOptions)
+    if fs.existsSync(optionsPath)
+        rawOptions = fs.readFileSync(optionsPath)
+
+        options = JSON.parse(rawOptions)
 
     commander = require("commander")
 
@@ -15,7 +18,7 @@ module.exports = (optionsPath)->
 
     commander.version('0.1')
 
-    zBoot(commander, options)
+    zBoot(commander, commandsList, options)
 
     unless process.argv.length > 2
         commander.outputHelp()

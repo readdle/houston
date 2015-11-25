@@ -3,10 +3,10 @@ errorHandler = (error)->
     console.log(error.stack)
     console.log("================= Handled error =================")
 
-module.exports = (app, settings)->
+module.exports = (app, commandsList = [], settings = {})->
     commandsRegistry = require("./commandsRegistry.coffee")
 
-    commandsRegistry.registryCommandsArray(settings.commandsListPath) if settings.commandsListPath?
+    commandsRegistry.registryCommandsArray(commandsList)
 
     commands = commandsRegistry.getCommands()
 
