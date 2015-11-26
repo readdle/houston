@@ -4,12 +4,12 @@ process.on("uncaughtException", (err)->
     console.log("Unhandled error: #{err}")
 );
 
-module.exports.Command = require("./src/Command.coffee")
+module.exports.Command = require("./src/command.coffee")
 
 module.exports.console = (commandsList = [])->
     commander = require("commander")
 
-    zBoot = require("./src/zBoot.coffee")
+    zBoot = require("./src/zboot.coffee")
 
     commander.version('0.1')
 
