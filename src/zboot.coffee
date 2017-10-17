@@ -1,7 +1,7 @@
 errorHandler = (error)->
-    console.log("================= Handled error =================")
-    console.log(error.stack)
-    console.log("================= Handled error =================")
+    console.log("\x1b[41m", "================= Handled error =================")
+    console.log("\x1b[41m", error.stack)
+    console.log("\x1b[41m", "================= Handled error =================")
 
 module.exports = (app, commandsList = [])->
     commandsRegistry = require("./commandsRegistry.coffee")
