@@ -1,5 +1,8 @@
 errorOutput = (message) ->
-    console.log("\x1b[41m%s\x1b[0m", message)
+    if process.stdout.isTTY
+        console.log("\x1b[41m%s\x1b[0m", message)
+    else
+        console.log(message)
 
 errorHandler = (error)->
     errorOutput("================= Handled error =================")
