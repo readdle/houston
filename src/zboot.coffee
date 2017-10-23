@@ -1,5 +1,5 @@
 errorOutput = (message) ->
-    console.log("\x1b[31m%s\x1b[0m", message)
+    console.log("\x1b[41m%s\x1b[0m", message)
 
 errorHandler = (error)->
     errorOutput("================= Handled error =================")
