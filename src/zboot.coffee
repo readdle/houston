@@ -1,7 +1,13 @@
+errorOutput = (message) ->
+    if process.stdout.isTTY
+        console.log("\x1b[41m%s\x1b[0m", message)
+    else
+        console.log(message)
+
 errorHandler = (error)->
-    console.log("\x1b[41m", "================= Handled error =================")
-    console.log("\x1b[41m", error.stack)
-    console.log("\x1b[41m", "================= Handled error =================")
+    errorOutput("================= Handled error =================")
+    errorOutput(error.stack)
+    errorOutput("================= Handled error =================")
 
 module.exports = (app, commandsList = [])->
     commandsRegistry = require("./commandsRegistry.coffee")
